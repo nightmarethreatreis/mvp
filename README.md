@@ -16,8 +16,8 @@ Aplikacija koristi MySQL bazu podataka i s toga ju je potrebno instalirati na ra
 1. Skinuti [**odgovarajući XAMPP**](https://www.apachefriends.org/download.html)
 2. Pokrenuti aplikaciju i pokrenuti (Start) odeljke **MySQL** i **Apache** (ovo će trebati da bi se baza mogla konfigurisati)
 3. Otvoriti [**PHPMyAdmin**](http://localhost/phpmyadmin)
-4. Sa leve strane naći **New** i napraviti bazu **nightmaretheatre** (samo ukucati ime i ići **Create**)
-5. Ići SQL tab u gornjem panelu i napraviti korisnika i dati mu privilegije, ništa ne menjati iz narednog koda (jedino što može u privilegijama **nightmaretheatre.\*** umesto **\*.\***):
+4. Sa leve strane naći **New** ([**Kreiranje nove baze**](http://localhost/phpmyadmin/server_databases.php)) i napraviti bazu **nightmaretheatre** (samo ukucati ime i ići **Create**)
+5. Ići SQL tab ([**SQL tab**](http://localhost/phpmyadmin/server_sql.php)) u gornjem panelu i napraviti korisnika i dati mu privilegije, ništa ne menjati iz narednog koda (jedino što može u privilegijama **nightmaretheatre.\*** umesto **\*.\***):
 	```sql
 	CREATE USER 'spring'@'localhost' IDENTIFIED BY '';
 	GRANT ALL PRIVILEGES ON * . * TO 'spring'@'localhost';
