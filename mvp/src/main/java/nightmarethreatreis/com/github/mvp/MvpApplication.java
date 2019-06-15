@@ -5,9 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
 
@@ -28,17 +25,15 @@ public class MvpApplication extends Application {
 	@Override
 	public void init() throws Exception {
 		context = SpringApplication.run(MvpApplication.class);
-		
 		loadBeans();
 	}
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		Scene scene = new Scene(new Label("Hello World!"));
-		screenManager.setMainScene(scene);
-		
-		primaryStage.setScene(scene);
+		screenManager.setPrimaryStage(primaryStage, true);
 		primaryStage.show();
+		
+		screenManager.activate("login");
 	}
 	
 	@Override
