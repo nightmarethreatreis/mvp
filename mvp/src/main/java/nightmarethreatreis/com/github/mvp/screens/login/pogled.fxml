@@ -12,4 +12,7 @@
    <top>
       <Label fx:id="label" text="Neki pogled" BorderPane.alignment="CENTER" />
    </top>
+   <bottom>
+      <Button fx:id="button" mnemonicParsing="false" text="Blick me" BorderPane.alignment="CENTER" />
+   </bottom>
 </BorderPane>

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javafx.fxml.FXMLLoader;
@@ -15,8 +16,11 @@ import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.config.GUIConfig;
 import nightmarethreatreis.com.github.mvp.config.NoSuchViewExceptions;
 import nightmarethreatreis.com.github.mvp.config.ScreensConfig;
+import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
+import nightmarethreatreis.com.github.mvp.screens.MVCController;
 
 @Component
+@Scope("singleton")
 public class ScreenManager {
 	
 	@Autowired
@@ -55,6 +59,9 @@ public class ScreenManager {
 		loader.setControllerFactory(context::getBean);
 		try {
 			Parent pane = loader.load();
+			MVCController controller = 
+					loader.<MVCController>getController();
+			pane.addEventHandler(OnShowEvent.SHOW_EVENT, controller::onShow);
 			return pane;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -83,5 +90,6 @@ public class ScreenManager {
 	public void activate(String viewName) {
 		Parent root = getView(viewName);
 		mainScene.setRoot(root);
+		root.fireEvent(new OnShowEvent());
 	}
 }
