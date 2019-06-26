@@ -17,6 +17,7 @@ import nightmarethreatreis.com.github.mvp.config.GUIConfig;
 import nightmarethreatreis.com.github.mvp.config.NoSuchViewExceptions;
 import nightmarethreatreis.com.github.mvp.config.ScreensConfig;
 import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
+import nightmarethreatreis.com.github.mvp.model.Korisnik;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
 
 @Component
@@ -29,6 +30,8 @@ public class ScreenManager {
 	private GUIConfig guiConfig;
 	@Autowired
 	private ConfigurableApplicationContext context;
+	@Autowired
+	private SessionManager sessionManager;
 	
 	private Stage primaryStage;
 	
@@ -91,5 +94,34 @@ public class ScreenManager {
 		Parent root = getView(viewName);
 		mainScene.setRoot(root);
 		root.fireEvent(new OnShowEvent());
+	}
+	
+	//
+	// CONDITIONAL REDIRECTING
+	//
+	public void redirectLogged(String screenName) {
+		if(sessionManager.isKorisnikLoggedIn()) {
+			activate(screenName);
+		}
+	}
+	
+	public void redirectNonLogged(String screenName) {
+		if(!sessionManager.isKorisnikLoggedIn()) {
+			activate(screenName);
+		}
+	}
+	
+	public void redictAuthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
+		Korisnik korisnik = sessionManager.getLoggedInKorisnik();
+		if(korisnik != null && korisnikClass.isInstance(korisnik)) {
+			activate(screenName);
+		}
+	}
+	
+	public void redictUnauthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
+		Korisnik korisnik = sessionManager.getLoggedInKorisnik();
+		if(korisnik == null || !korisnikClass.isInstance(korisnik)) {
+			activate(screenName);
+		}
 	}
 }

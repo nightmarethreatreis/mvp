@@ -17,16 +17,13 @@ import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 @Scope(scopeName = ConfigurableBeanFactory.SCOPE_SINGLETON)
 public class SessionManager {
 	private Long korisnikId = null;
-	
-	@Autowired
-	private ScreenManager screenManager;
+
 	@Autowired
 	private KorisnikRepository korisnikRepo;
 	@Autowired
 	private KorisnikLogic korisnikLogic;
 	
 	private Map<String, Object> sessionData = new HashMap<>();
-	
 	
 	//
 	// USER DATA CODE BLOCK
@@ -51,32 +48,6 @@ public class SessionManager {
 			throw new KorisnikLoginException("Korisnik je vec ulogovan");
 		}
 		korisnikId = korisnikLogic.getIdByLoginData(username, password);
-	}
-	
-	public void redirectLogged(String screenName) {
-		if(isKorisnikLoggedIn()) {
-			screenManager.activate(screenName);
-		}
-	}
-	
-	public void redirectNonLogged(String screenName) {
-		if(!isKorisnikLoggedIn()) {
-			screenManager.activate(screenName);
-		}
-	}
-	
-	public void redictAuthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
-		Korisnik korisnik = getLoggedInKorisnik();
-		if(korisnik != null && korisnikClass.isInstance(korisnik)) {
-			screenManager.activate(screenName);
-		}
-	}
-	
-	public void redictUnauthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
-		Korisnik korisnik = getLoggedInKorisnik();
-		if(korisnik == null || !korisnikClass.isInstance(korisnik)) {
-			screenManager.activate(screenName);
-		}
 	}
 	
 	//
