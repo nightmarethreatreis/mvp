@@ -44,11 +44,6 @@ public class KorisnikLogic {
 	
 	public boolean registerKupac(String username, String password, String ime, String prezime, String email) 
 			throws KorisnikDataException {
-		try {
-			korisnikDataValidator.validateEmail("a@gmail.com");
-		} catch(KorisnikDataException e) {
-			e.printStackTrace();
-		}
 		korisnikDataValidator.validateKupac(username, password, ime, prezime, email);
 		Kupac kupac = new Kupac();
 		kupac.setUsername(username);

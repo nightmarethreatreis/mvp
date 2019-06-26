@@ -7,7 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
-import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 
 @SpringBootApplication
 public class MvpApplication extends Application {
