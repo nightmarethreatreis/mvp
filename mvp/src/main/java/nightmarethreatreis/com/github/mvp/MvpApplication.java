@@ -37,7 +37,7 @@ public class MvpApplication extends Application {
 		screenManager.setPrimaryStage(primaryStage, true);
 		
 		primaryStage.show();
-		screenManager.activate("register");
+		screenManager.activate("login");
 		
 		/*Kupac k = new Kupac();
 		k.setEmail("milos.vujasinovic.98@gmail.com");
