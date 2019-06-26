@@ -1,5 +1,9 @@
 package nightmarethreatreis.com.github.mvp.logic;
 
+import java.util.function.BiConsumer;
+
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -24,7 +28,7 @@ public class KorisnikLogic {
 		Admin admin = new Admin();
 		admin.setUsername(username);
 		admin.setPassword(passwordEncoder.encode(password));
-		return korisnikRepo.saveAndFlush(admin) != null;
+		return korisnikRepo.save(admin) != null;
 	}
 	
 	public boolean registerRadnik(String username, String password, String ime, String prezime) 
@@ -35,7 +39,7 @@ public class KorisnikLogic {
 		radnik.setPassword(passwordEncoder.encode(password));
 		radnik.setIme(ime);
 		radnik.setPrezime(prezime);
-		return korisnikRepo.saveAndFlush(radnik) != null;
+		return korisnikRepo.save(radnik) != null;
 	}
 	
 	public boolean registerKupac(String username, String password, String ime, String prezime, String email) 
@@ -52,7 +56,7 @@ public class KorisnikLogic {
 		kupac.setIme(ime);
 		kupac.setPrezime(prezime);
 		kupac.setEmail(email);
-		return korisnikRepo.saveAndFlush(kupac) != null;
+		return korisnikRepo.save(kupac) != null;
 	}
 	
 	public long getIdByLoginData(String username, String password) throws KorisnikLoginException {
@@ -64,5 +68,37 @@ public class KorisnikLogic {
 			throw new KorisnikLoginException("Pogresna sifra");
 		}
 		return korisnik.getId();
+	}
+	
+	@FunctionalInterface
+	private interface KorisnikValidator<T> {
+		public void validate(T data) throws KorisnikDataException;
+	}
+	
+	private <T extends Korisnik, V> boolean updateKorisnikData(long korisnikId, V newValue, KorisnikValidator<V> validator, BiConsumer<T, V> assignment) 
+			throws KorisnikDataException {
+		validator.validate(newValue);
+		try {
+			Korisnik korisnik = korisnikRepo.getOne(korisnikId);
+			@SuppressWarnings("unchecked")
+			T entity = (T)korisnik;
+			assignment.accept(entity, newValue);
+			return korisnikRepo.save(entity) != null;
+		} catch(EntityNotFoundException e) {
+			throw new KorisnikDataException("Doslo je do greske prilikom pribavljanja korisnika");
+		} catch(ClassCastException e) {
+			throw new ClassCastException("Ne moze se kastovati u navedeni tip");
+		}
+	}
+	
+	public boolean updateUsername(long korisnikId, String username) throws KorisnikDataException {
+		return updateKorisnikData(korisnikId, username, korisnikDataValidator::validateUsername, Korisnik::setUsername);
+	}
+	
+	public boolean updatePassword(long korisnikId, String password) throws KorisnikDataException {
+		return updateKorisnikData(korisnikId, password, korisnikDataValidator::validatePassword, 
+				(korisnik, sifra) -> {
+					korisnik.setPassword(passwordEncoder.encode(password));
+				});
 	}
 }

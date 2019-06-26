@@ -7,8 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
-import nightmarethreatreis.com.github.mvp.model.Admin;
-import nightmarethreatreis.com.github.mvp.model.Kupac;
 import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 
 @SpringBootApplication
@@ -33,7 +31,7 @@ public class MvpApplication extends Application {
 		context = SpringApplication.run(MvpApplication.class);
 		loadBeans();
 	}
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		screenManager.setPrimaryStage(primaryStage, true);
@@ -53,7 +51,8 @@ public class MvpApplication extends Application {
 		a.setUsername("admin");
 		a.setPassword("savica");
 		System.out.println(korisnikRepo.saveAndFlush(a));*/
-	
+		
+		
 		System.out.println("Korisnici: " + korisnikRepo.getAllKorisnik());
 		System.out.println("Kupac: " + korisnikRepo.getAllKupac());
 		System.out.println("Admin: " + korisnikRepo.getAllAdmin());
