@@ -26,7 +26,7 @@ public class SessionManager {
 	private Map<String, Object> sessionData = new HashMap<>();
 	
 	//
-	// USER DATA CODE BLOCK
+	// USER DATA
 	//
 	public boolean isKorisnikLoggedIn() {
 		return korisnikId != null;
@@ -51,7 +51,7 @@ public class SessionManager {
 	}
 	
 	//
-	// SESSION DATA CODE BLOCK
+	// SESSION DATA
 	//
 	public void addData(String key, Object value) {
 		sessionData.put(key, value);

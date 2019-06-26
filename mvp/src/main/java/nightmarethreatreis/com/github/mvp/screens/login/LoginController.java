@@ -10,7 +10,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
-import nightmarethreatreis.com.github.mvp.logic.KorisnikLogic;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikLoginException;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
 import nightmarethreatreis.com.github.mvp.managers.SessionManager;
