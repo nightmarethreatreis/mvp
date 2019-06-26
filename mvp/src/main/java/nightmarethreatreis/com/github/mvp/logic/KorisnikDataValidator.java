@@ -2,7 +2,10 @@ package nightmarethreatreis.com.github.mvp.logic;
 
 import java.util.regex.Pattern;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 
 @Component
 public class KorisnikDataValidator {
@@ -15,6 +18,8 @@ public class KorisnikDataValidator {
 	 * public void validatePrezime(String prezime) throws KorisnikDataException;
 	 */
 	private Pattern emailPattern = Pattern.compile("^(?:\\w+\\.)*\\w+@(?:\\w+\\.)+\\w+$");
+	@Autowired
+	private KorisnikRepository korisnikRepo;
 	
 	public void validateEmail(String email) throws KorisnikDataException {
 		if(!emailPattern.matcher(email).find()) {
@@ -53,4 +58,36 @@ public class KorisnikDataValidator {
 	public void validatePrezime(String prezime) throws KorisnikDataException {
 		
 	}
+	
+	private void validateKorisnik(String username, String password) throws KorisnikDataException {
+		validateUsername(username);
+		if(korisnikRepo.getKorisnikByUsername(username) != null) {
+			throw new KorisnikDataException("Vec postoji korisnik sa unetim korisnickim imenom");
+		}
+		validatePassword(password);
+	}
+	
+	private void validateDataFullKorisnik(String username, String password, String ime, String prezime) 
+			throws KorisnikDataException {
+		validateKorisnik(username, password);
+		validateIme(prezime);
+		validatePrezime(prezime);
+	}
+	
+	public void validateAdmin(String username, String password) throws KorisnikDataException {
+		validateKorisnik(username, password);
+	}
+	
+	public void validateRadnik(String username, String password, String ime, String prezime) 
+			throws KorisnikDataException {
+		validateDataFullKorisnik(username, password, ime, prezime);
+	}
+	
+	public void validateKupac(String username, String password, String ime, String prezime, String email)
+			throws KorisnikDataException {
+		validateDataFullKorisnik(username, password, ime, prezime);
+		validateEmail(email);
+	}
+	
+	
 }

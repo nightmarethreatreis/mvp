@@ -7,6 +7,8 @@ import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
+import nightmarethreatreis.com.github.mvp.model.Admin;
+import nightmarethreatreis.com.github.mvp.model.Kupac;
 import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 
 @SpringBootApplication
@@ -37,7 +39,7 @@ public class MvpApplication extends Application {
 		screenManager.setPrimaryStage(primaryStage, true);
 		
 		primaryStage.show();
-		screenManager.activate("login");
+		screenManager.activate("register");
 		
 		/*Kupac k = new Kupac();
 		k.setEmail("milos.vujasinovic.98@gmail.com");
@@ -45,9 +47,9 @@ public class MvpApplication extends Application {
 		k.setPrezime("Vujasinovic");
 		k.setUsername("admin1");
 		k.setPassword("perica");
-		System.out.println(korisnikRepo.saveAndFlush(k));*/
+		System.out.println(korisnikRepo.saveAndFlush(k));
 	
-		/*Admin a = new Admin();
+		Admin a = new Admin();
 		a.setUsername("admin");
 		a.setPassword("savica");
 		System.out.println(korisnikRepo.saveAndFlush(a));*/
@@ -55,6 +57,7 @@ public class MvpApplication extends Application {
 		System.out.println("Korisnici: " + korisnikRepo.getAllKorisnik());
 		System.out.println("Kupac: " + korisnikRepo.getAllKupac());
 		System.out.println("Admin: " + korisnikRepo.getAllAdmin());
+		System.out.println("Radnici: " + korisnikRepo.getAllRadnik());
 	}
 	
 	@Override

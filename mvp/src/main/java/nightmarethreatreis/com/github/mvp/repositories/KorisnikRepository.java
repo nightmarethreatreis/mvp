@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import nightmarethreatreis.com.github.mvp.model.Admin;
 import nightmarethreatreis.com.github.mvp.model.Korisnik;
 import nightmarethreatreis.com.github.mvp.model.Kupac;
+import nightmarethreatreis.com.github.mvp.model.Radnik;
 
 public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
 	@Query(value = "select k from Korisnik k where k.username=:username")
@@ -23,4 +24,7 @@ public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
 	
 	@Query(value = "select a from Admin a")
 	public List<Admin> getAllAdmin();
+	
+	@Query(value = "select r from Radnik r")
+	public List<Radnik> getAllRadnik();
 }

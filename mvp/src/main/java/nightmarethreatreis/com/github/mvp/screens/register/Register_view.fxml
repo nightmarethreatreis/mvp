@@ -64,7 +64,7 @@
             </HBox>
             <BorderPane maxHeight="75.0" maxWidth="750.0" prefHeight="200.0" prefWidth="200.0" styleClass="naslov" stylesheets="@$register_view.css">
                <center>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRATION" underline="true" BorderPane.alignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTRACIJA" underline="true" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="45.0" />
                      </font>
@@ -89,42 +89,42 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Username " textAlignment="CENTER" underline="true">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Korisnicko ime" textAlignment="CENTER" underline="true">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Password " textAlignment="CENTER" underline="true" GridPane.rowIndex="1">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Lozinka" textAlignment="CENTER" underline="true" GridPane.rowIndex="1">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Retype Password " textAlignment="CENTER" underline="true" GridPane.rowIndex="2">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Ponovi lozinku" textAlignment="CENTER" underline="true" GridPane.rowIndex="2">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="E-mail Address " textAlignment="CENTER" underline="true" GridPane.rowIndex="3">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="E-mail adresa" textAlignment="CENTER" underline="true" GridPane.rowIndex="3">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="2" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="First name " textAlignment="CENTER" underline="true" GridPane.rowIndex="4">
+                  <TextField fx:id="usernameField" GridPane.columnIndex="2" />
+                  <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="passwordRetypedField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <TextField fx:id="emailField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Ime" textAlignment="CENTER" underline="true" GridPane.rowIndex="4">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Last name " textAlignment="CENTER" underline="true" GridPane.rowIndex="5">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Prezime" textAlignment="CENTER" underline="true" GridPane.rowIndex="5">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="5" />
+                  <TextField fx:id="imeField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <TextField fx:id="prezimeField" GridPane.columnIndex="2" GridPane.rowIndex="5" />
                   <Label text=":" GridPane.columnIndex="1">
                      <font>
                         <Font size="25.0" />
@@ -160,7 +160,15 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </GridPane>
-            <Button maxHeight="50.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="REGISTER">
+            <Label fx:id="infoLabel" text="INFO LABEL" textAlignment="CENTER" textFill="RED" wrapText="true">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="registerButton" maxHeight="50.0" maxWidth="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" text="REGISTRUJ SE">
                <VBox.margin>
                   <Insets top="35.0" />
                </VBox.margin>
