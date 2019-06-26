@@ -13,6 +13,7 @@ import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikLogic;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikLoginException;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
+import nightmarethreatreis.com.github.mvp.managers.SessionManager;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
 import nightmarethreatreis.com.github.mvp.screens.SpringMVCController;
 
@@ -30,7 +31,7 @@ public class LoginController implements MVCController {
 	@Autowired
 	private ScreenManager screenManager;
 	@Autowired
-	private KorisnikLogic korisnikLogic;
+	private SessionManager sessionManager;
 	
 	private void showErrorMessage(String errorMessage) {
 		infoLabel.setTextFill(Color.RED);
@@ -71,7 +72,7 @@ public class LoginController implements MVCController {
 		String username = usernameField.getText().trim(),
 				password = passwordField.getText().trim();
 		try {
-			System.out.println(korisnikLogic.getIdByLoginData(username, password));
+			sessionManager.login(username, password);
 			showSuccessMessage("Uspesno ste ulogovani :)");
 			loginButton.setDisable(true);
 		} catch (KorisnikLoginException e) {
