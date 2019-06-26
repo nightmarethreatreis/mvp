@@ -1,0 +1,38 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+    -fx-background-image: url("/staticfiles/MainPanel_Jpg.jpg");
+    -fx-background-size:     cover;                      
+    -fx-background-repeat:   no-repeat;
+    -fx-background-position: center center;  
+}
+.gridPane { 
+    -fx-background-color: #aaaaaa;
+    -fx-background-radius: 15;    
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.5 ), 10, 0, 5, 5 );
+    
+    
+}
+
+.naslov { 
+    -fx-background-color : #aaaaaa;
+    -fx-background-size: cover;
+    -fx-background-radius: 20;
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.5 ), 10, 0, 5, 5 );
+}
+.background0{
+    
+    -fx-background-color : #005275;
+    box-shadow: 5px 5px 10px #999;
+
+}
+.background1{
+    
+    -fx-background-image: url("/staticfiles/BG1_png.png");
+    -fx-background-size : contain;
+    -fx-background-repeat : repeat-x;
+    
+    
+}

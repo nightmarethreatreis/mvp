@@ -7,8 +7,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
-import nightmarethreatreis.com.github.mvp.model.Admin;
-import nightmarethreatreis.com.github.mvp.model.Kupac;
 import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
 
 @SpringBootApplication
@@ -39,8 +37,7 @@ public class MvpApplication extends Application {
 		screenManager.setPrimaryStage(primaryStage, true);
 		
 		primaryStage.show();
-		screenManager.activate("canvas");
-		
+		screenManager.activate("register");
 		
 		/*Kupac k = new Kupac();
 		k.setEmail("milos.vujasinovic.98@gmail.com");
