@@ -27,29 +27,7 @@
                   <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                </padding>
                <children>
-                  <Label styleClass="background1" text="Home">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <padding>
-                        <Insets left="15.0" right="15.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label styleClass="background1" text="Events &amp; Shows">
-                     <font>
-                        <Font size="30.0" />
-                     </font>
-                     <padding>
-                        <Insets left="15.0" right="15.0" />
-                     </padding>
-                     <HBox.margin>
-                        <Insets left="15.0" right="15.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label styleClass="background1" text="Your reservations">
+                  <Label onMouseClicked="#headToLogin" styleClass="background1" text="Ulogujte se">
                      <font>
                         <Font size="30.0" />
                      </font>

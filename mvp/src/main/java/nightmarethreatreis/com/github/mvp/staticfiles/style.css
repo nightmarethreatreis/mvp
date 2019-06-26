@@ -29,10 +29,14 @@
 
 }
 .background1{
-    
+    -fx-cursor: hand;
     -fx-background-image: url("BG1_png.png");
     -fx-background-size : contain;
     -fx-background-repeat : repeat-x;
     
     
+}
+
+.button {
+	-fx-cursor: hand;
 }

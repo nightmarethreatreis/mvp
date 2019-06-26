@@ -11,7 +11,7 @@ import javafx.scene.paint.Color;
 import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikDataException;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikLogic;
-import nightmarethreatreis.com.github.mvp.repositories.KorisnikRepository;
+import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
 import nightmarethreatreis.com.github.mvp.screens.SpringMVCController;
 
@@ -37,6 +37,8 @@ public class RegisterController implements MVCController {
 	
 	@Autowired
 	private KorisnikLogic korisnikLogic;
+	@Autowired
+	private ScreenManager screenManager;
 	
 	private void showErrorMessage(String errorMessage) {
 		infoLabel.setTextFill(Color.RED);
@@ -50,6 +52,11 @@ public class RegisterController implements MVCController {
 	
 	private void clearMessage() {
 		infoLabel.setText("");
+	}
+	
+	@FXML
+	private void headToLogin() {
+		screenManager.activate("login");
 	}
 	
 	private void resetFields() {
