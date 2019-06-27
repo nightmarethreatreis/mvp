@@ -1,0 +1,1 @@
+insert into zanr(naziv) values ('mjuzikl');

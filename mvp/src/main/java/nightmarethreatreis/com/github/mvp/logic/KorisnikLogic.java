@@ -60,7 +60,7 @@ public class KorisnikLogic {
 			throw new KorisnikLoginException("Uneti korisnik ne postoji");
 		}
 		if(!passwordEncoder.matches(password, korisnik.getPassword())) {
-			throw new KorisnikLoginException("Pogresna sifra");
+			throw new KorisnikLoginException("Pogresna lozinka");
 		}
 		return korisnik.getId();
 	}

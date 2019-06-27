@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="925.0" prefWidth="1300.0" styleClass="mainFxmlClass" stylesheets="@../../staticfiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nightmarethreatreis.com.github.mvp.screens.home.HomeController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="200.0" />
+            <HBox fx:id="navbar" maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0">
+               <VBox.margin>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="gridPane" />
+                  <String fx:value="navbar" />
+               </styleClass>
+            </HBox>
+            <Label alignment="CENTER" maxHeight="60.0" maxWidth="600.0" styleClass="background0" text="Početna Stranica" textFill="#580061" underline="true">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <ScrollPane hbarPolicy="NEVER" maxWidth="1200.0" prefHeight="655.0" prefWidth="1100.0">
+               <content>
+                  <VBox fx:id="content" alignment="TOP_CENTER" prefHeight="640.0" prefWidth="1170.0" />
+               </content>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

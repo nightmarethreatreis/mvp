@@ -23,6 +23,9 @@ public class Korisnik {
 	@Column(nullable = false)
 	private String password;
 	
+	 @Column(name = "uloga", insertable = false, updatable = false)
+	private String uloga;
+	
 	public Korisnik() {
 		this(null, null);
 	}
@@ -50,9 +53,14 @@ public class Korisnik {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	public String getUloga() {
+		return uloga;
+	}
+	public void setUloga(String uloga) {
+		this.uloga = uloga;
+	}
 	@Override
 	public String toString() {
-		return String.format("<Korisnik username='%s'>", getUsername());
+		return String.format("%s %s", uloga, username);
 	}
 }

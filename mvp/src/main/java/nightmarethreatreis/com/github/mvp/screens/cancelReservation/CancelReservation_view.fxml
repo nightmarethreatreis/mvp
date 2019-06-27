@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="925.0" prefWidth="1300.0" styleClass="mainFxmlClass" stylesheets="@../../staticfiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nightmarethreatreis.com.github.mvp.screens.cancelReservation.CancelReservationController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="200.0" />
+            <HBox maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="gridPane">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+               </padding>
+            </HBox>
+            <Label alignment="CENTER" maxHeight="60.0" maxWidth="600.0" styleClass="background0" text="Otkaži Rezervaciju" textFill="#580061" underline="true">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <TextArea maxHeight="400.0" maxWidth="800.0" prefHeight="150.0" prefWidth="800.0" text="Informacije izvođenja koje se otkazuje...">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="30.0" />
+               </VBox.margin>
+            </TextArea>
+            <HBox alignment="CENTER" maxHeight="200.0" maxWidth="400.0" prefHeight="168.0" prefWidth="400.0">
+               <children>
+                  <CheckBox mnemonicParsing="false" prefHeight="60.0" prefWidth="310.0" text="ŽELIM DA OTKAŽEM REZERVACIJU" textFill="ORANGE">
+                     <font>
+                        <Font name="Serif Bold Italic" size="14.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="10.0" top="15.0" />
+                     </HBox.margin></CheckBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="131.0" prefWidth="1300.0">
+               <children>
+                  <Button mnemonicParsing="false" text="Nazad">
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" text="Sačuvaj">
+                     <HBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Label text="ERROR REPORT LABELA" textFill="#00ddff">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

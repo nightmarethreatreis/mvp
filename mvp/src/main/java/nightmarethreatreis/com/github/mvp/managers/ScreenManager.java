@@ -99,29 +99,37 @@ public class ScreenManager {
 	//
 	// CONDITIONAL REDIRECTING
 	//
-	public void redirectLogged(String screenName) {
+	public boolean redirectLogged(String screenName) {
 		if(sessionManager.isKorisnikLoggedIn()) {
 			activate(screenName);
+			return true;
 		}
+		return false;
 	}
 	
-	public void redirectNonLogged(String screenName) {
+	public boolean redirectNonLogged(String screenName) {
 		if(!sessionManager.isKorisnikLoggedIn()) {
 			activate(screenName);
+			return true;
 		}
+		return false;
 	}
 	
-	public void redictAuthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
+	public boolean redirectAuthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
 		Korisnik korisnik = sessionManager.getLoggedInKorisnik();
 		if(korisnik != null && korisnikClass.isInstance(korisnik)) {
 			activate(screenName);
+			return true;
 		}
+		return false;
 	}
 	
-	public void redictUnauthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
+	public boolean redirectUnauthorized(Class<? extends Korisnik> korisnikClass, String screenName) {
 		Korisnik korisnik = sessionManager.getLoggedInKorisnik();
 		if(korisnik == null || !korisnikClass.isInstance(korisnik)) {
 			activate(screenName);
+			return true;
 		}
+		return false;
 	}
 }

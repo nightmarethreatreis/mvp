@@ -56,12 +56,12 @@ public class LoginController implements MVCController {
 		screenManager.activate("register");
 	}
 	
-	public void initialize() {
-		loginButton.setOnAction(this::handleLogin);
-	}
-	
 	@Override
 	public void onShow(OnShowEvent event) {
+		if(screenManager.redirectLogged("home")) {
+			return;
+		}
+		loginButton.setOnAction(this::handleLogin);
 		clearMessage();
 		resetFields();
 	}
@@ -74,6 +74,7 @@ public class LoginController implements MVCController {
 			sessionManager.login(username, password);
 			showSuccessMessage("Uspesno ste ulogovani :)");
 			loginButton.setDisable(true);
+			screenManager.redirectLogged("home");
 		} catch (KorisnikLoginException e) {
 			showErrorMessage(e.getMessage());
 		}

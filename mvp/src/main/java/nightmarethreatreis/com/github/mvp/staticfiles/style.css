@@ -24,19 +24,34 @@
 }
 .background0{
     
-    -fx-background-color : #005275;
-    box-shadow: 5px 5px 10px #999;
+    -fx-background-color : #cccccc;
+    -fx-background-radius: 5;
+    box-shadow: 10px 10px 10px #999;
 
 }
 .background1{
-    -fx-cursor: hand;
+    
     -fx-background-image: url("BG1_png.png");
     -fx-background-size : contain;
-    -fx-background-repeat : repeat-x;
-    
-    
+    -fx-background-repeat : repeat-x; 
 }
 
 .button {
+	-fx-cursor: hand;
+}
+
+.navbar {
+	-fx-alignment: center;
+	-fx-padding: 8px 5px 5px 5px;
+	-fx-spacing: 15px;
+}
+
+.navbar .label {
+	-fx-background-image: url("BG1_png.png");
+    -fx-background-size : contain;
+    -fx-background-repeat : repeat-x; 
+	-fx-padding: 3px 20px;
+	-fx-font-size: 25px;
+	-fx-text-fill: black;	
 	-fx-cursor: hand;
 }

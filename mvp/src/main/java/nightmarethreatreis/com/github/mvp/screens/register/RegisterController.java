@@ -68,12 +68,12 @@ public class RegisterController implements MVCController {
 		prezimeField.setText("");
 	}
 	
-	public void initialize() {
-		registerButton.setOnAction(this::handleRegistration);
-	}
-	
 	@Override
 	public void onShow(OnShowEvent event) {
+		if(screenManager.redirectLogged("home")) {
+			return;
+		}
+		registerButton.setOnAction(this::handleRegistration);
 		clearMessage();
 		resetFields();
 		registerButton.setDisable(false);
