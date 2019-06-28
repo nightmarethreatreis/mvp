@@ -15,6 +15,12 @@ public class Kupac extends DataFullKorisnik {
 	@OneToMany(mappedBy = "kupac")
 	private List<Rezervacija> rezervacije = new ArrayList<>();
 	
+	public List<Rezervacija> getRezervacije() {
+		return rezervacije;
+	}
+	public void setRezervacije(List<Rezervacija> rezervacije) {
+		this.rezervacije = rezervacije;
+	}
 	public String getEmail() {
 		return email;
 	}

@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Temporal;
@@ -24,7 +25,10 @@ public class Karta {
 	private Izvodjenje izvodjenje;
 	
 	@MapsId("sedisteId")
-	@JoinColumn(name = "sediste_id")
+	@JoinColumns({
+		@JoinColumn(name = "sediste_sala_id", referencedColumnName = "sala_id"),
+		@JoinColumn(name = "sediste_sediste_id", referencedColumnName = "sediste_id")
+	})
 	@ManyToOne
 	private Sediste sediste;
 	
