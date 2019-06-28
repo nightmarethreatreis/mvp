@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
-import nightmarethreatreis.com.github.mvp.logic.KorisnikDataException;
+import nightmarethreatreis.com.github.mvp.logic.DataValidityException;
 import nightmarethreatreis.com.github.mvp.logic.KorisnikLogic;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
@@ -100,7 +100,7 @@ public class RegisterController implements MVCController {
 			else {
 				showErrorMessage("Nepoznata greska, pokusajte kasnije");
 			}
-		} catch (KorisnikDataException e) {
+		} catch (DataValidityException e) {
 			showErrorMessage(e.getMessage());
 		}
 	}

@@ -23,7 +23,7 @@ public class KorisnikLogic {
 	@Autowired
 	private KorisnikRepository korisnikRepo;
 	
-	public boolean registerAdmin(String username, String password) throws KorisnikDataException {
+	public boolean registerAdmin(String username, String password) throws DataValidityException {
 		korisnikDataValidator.validateAdmin(username, password);
 		Admin admin = new Admin();
 		admin.setUsername(username);
@@ -32,7 +32,7 @@ public class KorisnikLogic {
 	}
 	
 	public boolean registerRadnik(String username, String password, String ime, String prezime) 
-			throws KorisnikDataException {
+			throws DataValidityException {
 		korisnikDataValidator.validateRadnik(username, password, ime, prezime);
 		Radnik radnik = new Radnik();
 		radnik.setUsername(username);
@@ -43,7 +43,7 @@ public class KorisnikLogic {
 	}
 	
 	public boolean registerKupac(String username, String password, String ime, String prezime, String email) 
-			throws KorisnikDataException {
+			throws DataValidityException {
 		korisnikDataValidator.validateKupac(username, password, ime, prezime, email);
 		Kupac kupac = new Kupac();
 		kupac.setUsername(username);
@@ -67,11 +67,11 @@ public class KorisnikLogic {
 	
 	@FunctionalInterface
 	private interface KorisnikValidator<T> {
-		public void validate(T data) throws KorisnikDataException;
+		public void validate(T data) throws DataValidityException;
 	}
 	
 	private <T extends Korisnik, V> boolean updateKorisnikData(long korisnikId, V newValue, KorisnikValidator<V> validator, BiConsumer<T, V> assignment) 
-			throws KorisnikDataException {
+			throws DataValidityException {
 		validator.validate(newValue);
 		try {
 			Korisnik korisnik = korisnikRepo.getOne(korisnikId);
@@ -80,17 +80,17 @@ public class KorisnikLogic {
 			assignment.accept(entity, newValue);
 			return korisnikRepo.save(entity) != null;
 		} catch(EntityNotFoundException e) {
-			throw new KorisnikDataException("Doslo je do greske prilikom pribavljanja korisnika");
+			throw new DataValidityException("Doslo je do greske prilikom pribavljanja korisnika");
 		} catch(ClassCastException e) {
 			throw new ClassCastException("Ne moze se kastovati u navedeni tip");
 		}
 	}
 	
-	public boolean updateUsername(long korisnikId, String username) throws KorisnikDataException {
+	public boolean updateUsername(long korisnikId, String username) throws DataValidityException {
 		return updateKorisnikData(korisnikId, username, korisnikDataValidator::validateUsername, Korisnik::setUsername);
 	}
 	
-	public boolean updatePassword(long korisnikId, String password) throws KorisnikDataException {
+	public boolean updatePassword(long korisnikId, String password) throws DataValidityException {
 		return updateKorisnikData(korisnikId, password, korisnikDataValidator::validatePassword, 
 				(korisnik, sifra) -> {
 					korisnik.setPassword(passwordEncoder.encode(password));

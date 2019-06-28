@@ -31,7 +31,7 @@ public class MvpApplication extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		screenManager.setPrimaryStage(primaryStage, true);
-		screenManager.activate("login");
+		screenManager.activate("showAllPersonel");
 		primaryStage.show();
 	}
 	
