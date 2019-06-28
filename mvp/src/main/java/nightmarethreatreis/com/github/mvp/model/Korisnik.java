@@ -23,7 +23,7 @@ public class Korisnik {
 	@Column(nullable = false)
 	private String password;
 	
-	 @Column(name = "uloga", insertable = false, updatable = false)
+	@Column(name = "uloga", insertable = false, updatable = false)
 	private String uloga;
 	
 	public Korisnik() {

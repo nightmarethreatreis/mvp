@@ -1,7 +1,7 @@
 package nightmarethreatreis.com.github.mvp.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Predstava {
@@ -24,8 +25,29 @@ public class Predstava {
 	private String opis;
 	
 	@ManyToMany
-	private Set<Zanr> zanrovi = new HashSet<>();
+	private List<Zanr> zanrovi = new ArrayList<>();
 	
+	@OneToMany(mappedBy = "predstava")
+	private List<Uloga> uloge = new ArrayList<>();
+	
+	@ManyToMany
+	private List<Reziser> reziseri = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "predstava")
+	private List<Izvodjenje> izvodjenja = new ArrayList<>();
+	
+	public List<Uloga> getUloge() {
+		return uloge;
+	}
+	public void setUloge(List<Uloga> uloge) {
+		this.uloge = uloge;
+	}
+	public List<Reziser> getReziseri() {
+		return reziseri;
+	}
+	public void setReziseri(List<Reziser> reziseri) {
+		this.reziseri = reziseri;
+	}
 	public int getId() {
 		return id;
 	}
@@ -50,10 +72,10 @@ public class Predstava {
 	public void setOpis(String opis) {
 		this.opis = opis;
 	}
-	public Set<Zanr> getZanrovi() {
+	public List<Zanr> getZanrovi() {
 		return zanrovi;
 	}
-	public void setZanrovi(Set<Zanr> zanrovi) {
+	public void setZanrovi(List<Zanr> zanrovi) {
 		this.zanrovi = zanrovi;
 	}
 	

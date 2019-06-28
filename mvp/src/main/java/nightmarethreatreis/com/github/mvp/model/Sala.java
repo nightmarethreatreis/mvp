@@ -3,30 +3,26 @@ package nightmarethreatreis.com.github.mvp.model;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
-public class Zanr {
+public class Sala {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(nullable = false, unique = true)
+	
 	private String naziv;
 	
-	@ManyToMany(mappedBy = "zanrovi")
-	private List<Predstava> predstave = new ArrayList<>();
+	@OneToMany(mappedBy = "sala")
+	private List<Izvodjenje> izvodjenja = new ArrayList<>();
 	
-	public List<Predstava> getPredstave() {
-		return predstave;
-	}
-	public void setPredstave(List<Predstava> predstave) {
-		this.predstave = predstave;
-	}
+	@OneToMany(mappedBy = "sala")
+	private List<Sediste> sedista = new ArrayList<>();
+
 	public long getId() {
 		return id;
 	}
@@ -39,9 +35,16 @@ public class Zanr {
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
 	}
-	
-	@Override
-	public String toString() {
-		return "Zanr " + naziv;
+	public List<Izvodjenje> getIzvodjenja() {
+		return izvodjenja;
+	}
+	public void setIzvodjenja(List<Izvodjenje> izvodjenja) {
+		this.izvodjenja = izvodjenja;
+	}
+	public List<Sediste> getSedista() {
+		return sedista;
+	}
+	public void setSedista(List<Sediste> sedista) {
+		this.sedista = sedista;
 	}
 }
