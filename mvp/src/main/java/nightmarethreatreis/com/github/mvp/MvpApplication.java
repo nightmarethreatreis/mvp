@@ -13,6 +13,7 @@ public class MvpApplication extends Application {
 
 	private ConfigurableApplicationContext context;
 	private ScreenManager screenManager;
+	private DbInitializer dbInitializer;
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -20,12 +21,14 @@ public class MvpApplication extends Application {
 	
 	private void loadBeans() {
 		screenManager = context.getBean(ScreenManager.class);
+		dbInitializer = context.getBean(DbInitializer.class);
 	}
 	
 	@Override
 	public void init() throws Exception {
 		context = SpringApplication.run(MvpApplication.class);
 		loadBeans();
+		dbInitializer.checkForInitialization();
 	}
 	
 	@Override

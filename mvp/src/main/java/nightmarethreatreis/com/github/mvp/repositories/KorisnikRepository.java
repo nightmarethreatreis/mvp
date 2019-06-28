@@ -27,4 +27,7 @@ public interface KorisnikRepository extends JpaRepository<Korisnik, Long> {
 	
 	@Query(value = "select r from Radnik r")
 	public List<Radnik> getAllRadnik();
+	
+	@Query(value = "select count(a) from Admin a")
+	public long getAdminCount();
 }
