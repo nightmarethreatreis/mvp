@@ -50,9 +50,9 @@ public class AddPersonelController implements MVCController {
 	
 	@Override
 	public void onShow(OnShowEvent event) {
-		/*if(screenManager.redirectUnauthorized(Admin.class, "home")) {
+		if(screenManager.redirectUnauthorized(Admin.class, "home")) {
 			return;
-		}*/
+		}
 		navbarManager.updateNavbar(navbar);
 		resetForm();
 		clearMessage();

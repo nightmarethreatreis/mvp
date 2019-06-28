@@ -13,6 +13,7 @@ import javafx.scene.layout.FlowPane;
 import nightmarethreatreis.com.github.mvp.events.OnShowEvent;
 import nightmarethreatreis.com.github.mvp.managers.NavbarManager;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
+import nightmarethreatreis.com.github.mvp.model.Admin;
 import nightmarethreatreis.com.github.mvp.model.DramskiRadnik;
 import nightmarethreatreis.com.github.mvp.repositories.DramskiRadnikRepository;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
@@ -34,9 +35,9 @@ public class ShowAllPersonelController implements MVCController {
 	
 	@Override
 	public void onShow(OnShowEvent event) {
-		/*if(screenManager.redirectUnauthorized(Admin.class, "home")) {
+		if(screenManager.redirectUnauthorized(Admin.class, "home")) {
 			return;
-		}*/
+		}
 		navbarManager.updateNavbar(navbar);
 		loadContent();
 	}

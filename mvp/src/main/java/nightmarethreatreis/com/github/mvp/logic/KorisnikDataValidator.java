@@ -40,7 +40,9 @@ public class KorisnikDataValidator {
 	 * Ne sme sadrzati razmake
 	 */
 	public void validateUsername(String username) throws DataValidityException {
-		
+		if(korisnikRepo.getKorisnikByUsername(username) != null) {
+			throw new DataValidityException("Vec postoji korisnik sa unetim korisnickim imenom");
+		}
 	}
 	
 	/*
@@ -68,9 +70,6 @@ public class KorisnikDataValidator {
 	
 	private void validateKorisnik(String username, String password) throws DataValidityException {
 		validateUsername(username);
-		if(korisnikRepo.getKorisnikByUsername(username) != null) {
-			throw new DataValidityException("Vec postoji korisnik sa unetim korisnickim imenom");
-		}
 		validatePassword(password);
 	}
 	

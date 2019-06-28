@@ -49,6 +49,7 @@ public class LoginController implements MVCController {
 	private void resetFields() {
 		usernameField.setText("");
 		passwordField.setText("");
+		loginButton.setDisable(false);
 	}
 	
 	@FXML

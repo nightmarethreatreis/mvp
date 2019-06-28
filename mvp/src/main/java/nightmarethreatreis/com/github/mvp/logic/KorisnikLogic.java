@@ -54,12 +54,16 @@ public class KorisnikLogic {
 		return korisnikRepo.save(kupac) != null;
 	}
 	
+	public boolean doesPasswordMatchKorisniks(Korisnik korisnik, String password) {
+		return passwordEncoder.matches(password, korisnik.getPassword());
+	}
+	
 	public long getIdByLoginData(String username, String password) throws KorisnikLoginException {
 		Korisnik korisnik = korisnikRepo.getKorisnikByUsername(username);
 		if(korisnik == null) {
 			throw new KorisnikLoginException("Uneti korisnik ne postoji");
 		}
-		if(!passwordEncoder.matches(password, korisnik.getPassword())) {
+		if(!doesPasswordMatchKorisniks(korisnik, password)) {
 			throw new KorisnikLoginException("Pogresna lozinka");
 		}
 		return korisnik.getId();

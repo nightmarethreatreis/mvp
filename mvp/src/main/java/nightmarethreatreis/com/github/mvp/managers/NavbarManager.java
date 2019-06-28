@@ -28,9 +28,18 @@ public class NavbarManager {
 		return new NavbarLink(name, event -> screenManager.activate(screenName));
 	}
 	
+	private NavbarLink createLogoutLink(String name) {
+		return new NavbarLink(name, event -> {
+			sessionManager.logout();
+			screenManager.activate("login");
+		});
+	}
+	
 	{
 		reloadNavbar();
 	}
+	
+	
 	
 	public void reloadNavbar() {
 		List<NavbarLink> kupacLinks = new LinkedList<>();
@@ -38,19 +47,23 @@ public class NavbarManager {
 		List<NavbarLink> radnikLinks = new LinkedList<>();
 	
 		// KUPAC LINKS
-		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Promena korisnickog imena", "changeUsername"));
+		kupacLinks.add(createLink("Početna", "home"));
+		kupacLinks.add(createLink("Promena korisničkog imena", "changeUsername"));
 		kupacLinks.add(createLink("Promena lozinke", "changePassword"));
+		kupacLinks.add(createLogoutLink("Odjavi se"));
 		
 		// ADMIN LINKS
-		adminLinks.add(createLink("Pocetna", "home"));
+		adminLinks.add(createLink("Početna", "home"));
+		adminLinks.add(createLink("Pregled dramskih radnika", "showAllPersonel"));
+		adminLinks.add(createLink("Promena korisničkog imena", "changeUsername"));
+		adminLinks.add(createLink("Promena lozinke", "changePassword"));
+		adminLinks.add(createLogoutLink("Odjavi se"));
 		
 		// RADNIK LINKS
-		radnikLinks.add(createLink("Pocetna", "home"));
+		radnikLinks.add(createLink("Početna", "home"));
+		radnikLinks.add(createLink("Promena korisničkog imena", "changeUsername"));
+		radnikLinks.add(createLink("Promena lozinke", "changePassword"));
+		radnikLinks.add(createLogoutLink("Odjavi se"));
 		
 		links.put(Kupac.class, kupacLinks);
 		links.put(Admin.class, adminLinks);

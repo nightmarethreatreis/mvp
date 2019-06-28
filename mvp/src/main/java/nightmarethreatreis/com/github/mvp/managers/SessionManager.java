@@ -32,6 +32,10 @@ public class SessionManager {
 		return korisnikId != null;
 	}
 	
+	public Long getKorisnikId() {
+		return korisnikId;
+	}
+	
 	public Korisnik getLoggedInKorisnik() {
 		if(korisnikId == null) {
 			return null;
