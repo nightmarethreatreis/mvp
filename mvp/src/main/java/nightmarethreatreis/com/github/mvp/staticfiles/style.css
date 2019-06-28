@@ -12,8 +12,6 @@
     -fx-background-color: #aaaaaa;
     -fx-background-radius: 15;    
     -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.5 ), 10, 0, 5, 5 );
-    
-    
 }
 
 .naslov { 
@@ -41,9 +39,10 @@
 }
 
 .navbar {
+	-fx-background-color: #aaaaaa;
+	-fx-background-radius: 15;   
+    -fx-effect: innershadow( gaussian, rgba( 0, 0, 0, 0.5 ), 10, 0, 5, 5 );
 	-fx-alignment: center;
-	-fx-padding: 8px 5px 5px 5px;
-	-fx-spacing: 15px;
 }
 
 .navbar .label {
@@ -54,4 +53,5 @@
 	-fx-font-size: 25px;
 	-fx-text-fill: black;	
 	-fx-cursor: hand;
+	
 }

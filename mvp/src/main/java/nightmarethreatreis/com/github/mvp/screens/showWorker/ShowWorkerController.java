@@ -1,4 +1,4 @@
-package nightmarethreatreis.com.github.mvp.screens.changePassword;
+package nightmarethreatreis.com.github.mvp.screens.showWorker;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +11,7 @@ import nightmarethreatreis.com.github.mvp.screens.MVCController;
 import nightmarethreatreis.com.github.mvp.screens.SpringMVCController;
 
 @SpringMVCController
-public class ChangePasswordController implements MVCController {
+public class ShowWorkerController implements MVCController {
 	@FXML
 	private FlowPane navbar;
 	

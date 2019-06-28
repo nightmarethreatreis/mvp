@@ -14,14 +14,19 @@
       <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="70.0" prefWidth="200.0" />
-            <HBox maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="gridPane">
-               <VBox.margin>
-                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
-               </VBox.margin>
+            <FlowPane fx:id="navbar" columnHalignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="navbar" vgap="1.0">
                <padding>
-                  <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
                </padding>
-            </HBox>
+               <VBox.margin>
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+            </FlowPane>
+            <Label text="ERROR REPORT LABELA" textFill="#00ddff">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </Label>
             <Label alignment="CENTER" maxHeight="60.0" maxWidth="600.0" styleClass="background0" text="Otkaži Rezervaciju" textFill="#580061" underline="true">
                <font>
                   <Font size="40.0" />
@@ -60,11 +65,6 @@
                   </Button>
                </children>
             </HBox>
-            <Label text="ERROR REPORT LABELA" textFill="#00ddff">
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Label>
          </children>
       </VBox>
    </children>

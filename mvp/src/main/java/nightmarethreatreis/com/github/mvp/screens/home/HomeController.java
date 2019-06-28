@@ -3,7 +3,7 @@ package nightmarethreatreis.com.github.mvp.screens.home;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javafx.fxml.FXML;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -26,7 +26,7 @@ public class HomeController implements MVCController {
 	private SessionManager sessionManager;
 	
 	@FXML
-	private HBox navbar;
+	private Pane navbar;
 	@FXML
 	private VBox content;
 	
@@ -48,12 +48,7 @@ public class HomeController implements MVCController {
 		if(screenManager.redirectNonLogged("login")) {
 			return;
 		}
-		resetNavbar();
+		navbarManager.updateNavbar(navbar);
 		initializeContent();
-	}
-	
-	private void resetNavbar() {
-		navbar.getChildren().clear();
-		navbar.getChildren().addAll(navbarManager.getNavbarLinks());
 	}
 }

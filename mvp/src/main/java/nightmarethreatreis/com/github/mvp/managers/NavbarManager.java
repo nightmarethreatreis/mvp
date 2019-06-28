@@ -39,7 +39,12 @@ public class NavbarManager {
 	
 		// KUPAC LINKS
 		kupacLinks.add(createLink("Pocetna", "home"));
-		kupacLinks.add(createLink("Pocetna", "register"));
+		kupacLinks.add(createLink("Pocetna", "home"));
+		kupacLinks.add(createLink("Pocetna", "home"));
+		kupacLinks.add(createLink("Pocetna", "home"));
+		kupacLinks.add(createLink("Pocetna", "home"));
+		kupacLinks.add(createLink("Promena korisnickog imena", "changeUsername"));
+		kupacLinks.add(createLink("Promena lozinke", "changePassword"));
 		
 		// ADMIN LINKS
 		adminLinks.add(createLink("Pocetna", "home"));
@@ -64,5 +69,13 @@ public class NavbarManager {
 			return lista;
 		}
 		return getNavbarLinkList(korisnik.getClass());
+	}
+	
+	public void updateNavbar(Pane navbar) {
+		if(navbar == null) {
+			throw new NullPointerException("Navbar ne sme biti null");
+		}
+		navbar.getChildren().clear();
+		navbar.getChildren().addAll(getNavbarLinks());
 	}
 }

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="925.0" prefWidth="1300.0" styleClass="mainFxmlClass" stylesheets="@../../staticfiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nightmarethreatreis.com.github.mvp.screens.showSingleShow.ShowSingleShowController">
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Pane prefHeight="70.0" prefWidth="200.0" />
+            <FlowPane fx:id="navbar" columnHalignment="CENTER" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="navbar" vgap="1.0">
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+            </FlowPane>
+            <Label alignment="CENTER" maxHeight="60.0" maxWidth="600.0" styleClass="background0" text="Prikaz Predstave" textFill="#580061" underline="true">
+               <font>
+                  <Font size="40.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="20.0" top="10.0" />
+               </VBox.margin>
+            </Label>
+            <Pane maxHeight="345.0" maxWidth="1100.0" prefHeight="345.0" prefWidth="1100.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+            </Pane>
+            <HBox alignment="CENTER" maxHeight="250.0" maxWidth="1100.0" prefHeight="146.0" prefWidth="1100.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </VBox.margin>
+               <children>
+                  <Label prefHeight="116.0" prefWidth="302.0" text="Naredna Izvođenja :" textAlignment="CENTER">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+                  <ComboBox prefHeight="81.0" prefWidth="246.0" promptText="Odaberi naredno izvodjenje..." />
+                  <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="244.0" text="KUPI KARTU ZA IZVOĐENJE">
+                     <HBox.margin>
+                        <Insets left="30.0" right="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="95.0" text="Nazad">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

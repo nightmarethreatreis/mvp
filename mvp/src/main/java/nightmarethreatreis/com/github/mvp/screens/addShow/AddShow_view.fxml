@@ -19,13 +19,17 @@
       <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="70.0" prefWidth="200.0" />
-            <HBox alignment="CENTER" maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="gridPane">
+            <HBox fx:id="navbar" alignment="CENTER" maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0">
                <VBox.margin>
-                  <Insets bottom="10.0" left="50.0" right="50.0" top="10.0" />
+                  <Insets bottom="30.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                </padding>
+               <styleClass>
+                  <String fx:value="gridPane" />
+                  <String fx:value="navbar" />
+               </styleClass>
             </HBox>
             <BorderPane maxHeight="75.0" maxWidth="750.0" prefHeight="200.0" prefWidth="200.0" styleClass="naslov" stylesheets="@$register_view.css">
                <center>

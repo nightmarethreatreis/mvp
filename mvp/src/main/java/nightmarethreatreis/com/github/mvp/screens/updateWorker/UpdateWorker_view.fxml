@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="925.0" prefWidth="1300.0" styleClass="mainFxmlClass" stylesheets="@../../staticfiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nightmarethreatreis.com.github.mvp.screens.addPersonel.AddPersonelController">
+<AnchorPane prefHeight="925.0" prefWidth="1300.0" styleClass="mainFxmlClass" stylesheets="@../../staticfiles/style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nightmarethreatreis.com.github.mvp.screens.updateWorker.UpdateWorkerController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,7 +29,7 @@
             </FlowPane>
             <BorderPane maxHeight="75.0" maxWidth="750.0" prefHeight="200.0" prefWidth="200.0" styleClass="naslov" stylesheets="@$register_view.css">
                <center>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DODAJ GLUMCA ILI REŽISERA" underline="true" BorderPane.alignment="CENTER">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AŽURIRAJ RADNIKA" underline="true" BorderPane.alignment="CENTER">
                      <font>
                         <Font size="45.0" />
                      </font>
@@ -46,6 +46,7 @@
                 <ColumnConstraints halignment="LEFT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -85,7 +86,7 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Glumac/Režiser ?" textAlignment="CENTER" underline="true" GridPane.rowIndex="3">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Plata" textAlignment="CENTER" underline="true" GridPane.rowIndex="3">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -95,7 +96,18 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <ComboBox prefHeight="28.0" prefWidth="297.0" promptText="Da li je glumac ili režiser?" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Identifikacioni Broj" textAlignment="CENTER" underline="true" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </Label>
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
