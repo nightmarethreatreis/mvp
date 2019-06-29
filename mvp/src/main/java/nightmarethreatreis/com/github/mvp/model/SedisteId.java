@@ -38,6 +38,22 @@ public class SedisteId implements Serializable {
 				sedisteId == other.sedisteId;
 	}
 	
+	public long getSalaId() {
+		return salaId;
+	}
+
+	public void setSalaId(long salaId) {
+		this.salaId = salaId;
+	}
+
+	public long getSedisteId() {
+		return sedisteId;
+	}
+
+	public void setSedisteId(long sedisteId) {
+		this.sedisteId = sedisteId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(salaId, sedisteId);

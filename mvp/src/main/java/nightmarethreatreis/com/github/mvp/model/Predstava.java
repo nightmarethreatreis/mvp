@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Type;
+
 @Entity
 public class Predstava {
 	@Id
@@ -22,6 +24,7 @@ public class Predstava {
 	@Column(nullable = false)
 	private int trajanje;
 	@Column(nullable = false)
+	@Type(type = "text")
 	private String opis;
 	
 	@ManyToMany

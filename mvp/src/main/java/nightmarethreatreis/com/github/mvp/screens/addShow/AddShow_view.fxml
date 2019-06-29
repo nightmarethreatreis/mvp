@@ -19,18 +19,14 @@
       <VBox alignment="TOP_CENTER" prefHeight="925.0" prefWidth="1300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Pane prefHeight="70.0" prefWidth="200.0" />
-            <HBox fx:id="navbar" alignment="CENTER" maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0">
+            <FlowPane fx:id="navbar" maxHeight="45.0" maxWidth="1100.0" prefHeight="45.0" prefWidth="1000.0" styleClass="navbar">
                <VBox.margin>
                   <Insets bottom="30.0" left="50.0" right="50.0" top="10.0" />
                </VBox.margin>
                <padding>
                   <Insets bottom="5.0" left="15.0" right="15.0" top="5.0" />
                </padding>
-               <styleClass>
-                  <String fx:value="gridPane" />
-                  <String fx:value="navbar" />
-               </styleClass>
-            </HBox>
+            </FlowPane>
             <BorderPane maxHeight="75.0" maxWidth="750.0" prefHeight="200.0" prefWidth="200.0" styleClass="naslov" stylesheets="@$register_view.css">
                <center>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DODAJ PREDSTAVU" underline="true" BorderPane.alignment="CENTER">
@@ -52,20 +48,19 @@
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Naziv Izvođenja" textAlignment="CENTER" underline="true">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Naziv Predstave" textAlignment="CENTER" underline="true">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Datum premijere" textAlignment="CENTER" underline="true" GridPane.rowIndex="1">
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Trajanje" textAlignment="CENTER" underline="true" GridPane.rowIndex="1">
                      <font>
                         <Font size="26.0" />
                      </font>
                   </Label>
-                  <TextField GridPane.columnIndex="2" />
+                  <TextField fx:id="nazivPredstaveField" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" />
                   <Label text=":" GridPane.columnIndex="1">
                      <font>
                         <Font size="25.0" />
@@ -76,32 +71,141 @@
                         <Font size="25.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" text="Vrsta izvođenja" textAlignment="CENTER" underline="true" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                  </Label>
-                  <Label text=":" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Label>
-                  <ComboBox prefHeight="28.0" prefWidth="297.0" promptText="Koncert, Opera, Predstava, Balet... " GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <DatePicker maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <TextField fx:id="trajanjePredstaveFIeld" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </padding>
             </GridPane>
-            <Label text="DODAJ GLUMCE I REŽISERE" textFill="ORANGE" underline="true">
+            <BorderPane maxWidth="1100.0" prefHeight="406.0" prefWidth="1100.0" style="-fx-background-color: white;">
+               <top>
+                  <VBox prefWidth="100.0" spacing="1.0" style="-fx-background-color: #111111;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="12.0" prefWidth="1100.0" spacing="10.0" style="-fx-background-color: #dddddd;">
+                           <children>
+                              <ComboBox fx:id="zanrComboBox" prefWidth="300.0" promptText="Žanr" />
+                              <Button mnemonicParsing="false" onAction="#dodajZanr" prefWidth="140.0" text="Dodaj žanr" />
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="12.0" prefWidth="1100.0" spacing="10.0" style="-fx-background-color: #dddddd;">
+                           <children>
+                              <ComboBox fx:id="reziserComboBox" prefWidth="300.0" promptText="Režiser" />
+                              <Button mnemonicParsing="false" onAction="#dodajRezisera" prefWidth="140.0" text="Dodaj režisera" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="1100.0" spacing="10.0" style="-fx-background-color: #dddddd;">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <TextField fx:id="ulogaField" prefWidth="300.0" />
+                              <Button mnemonicParsing="false" onAction="#dodajUlogu" prefWidth="140.0" text="Dodaj ulogu" />
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER" prefWidth="1100.0" spacing="10.0" style="-fx-background-color: #dddddd;">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <children>
+                              <ComboBox fx:id="ulogaComboBox" onAction="#ulogaChange" prefWidth="200.0" promptText="Uloga" />
+                              <ComboBox fx:id="glumacComboBox" prefWidth="200.0" promptText="Glumac" />
+                              <Button mnemonicParsing="false" onAction="#dodajGlumcaUlozi" prefWidth="140.0" text="Dodeli glumcu ulogu" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+                     </padding>
+                  </VBox>
+               </top>
                <VBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin>
-               <font>
-                  <Font name="System Bold Italic" size="14.0" />
-               </font>
-            </Label>
-            <Pane maxHeight="400.0" maxWidth="1100.0" prefHeight="400.0" prefWidth="1000.0" />
+               <center>
+                  <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                      <Tab text="Žanrovi">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <top>
+                                    <Label text="Odabrani žanrovi" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <center>
+                                    <FlowPane fx:id="zanroviPane" columnHalignment="CENTER" hgap="5.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" vgap="5.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Režiseri">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <top>
+                                    <Label text="Odabrani režiseri" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                                 <center>
+                                    <FlowPane fx:id="reziseriPane" hgap="5.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" vgap="5.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                              </BorderPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Uloge">
+                           <content>
+                              <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                 <top>
+                                    <Label text="Uloge" BorderPane.alignment="CENTER">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </top>
+                                 <center>
+                                    <FlowPane fx:id="ulogaPane" hgap="5.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="200.0" vgap="5.0" BorderPane.alignment="CENTER" />
+                                 </center>
+                                 <padding>
+                                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </BorderPane>
+                           </content>
+                        </Tab>
+                        <Tab text="Opis predstave">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea fx:id="opisArea" prefHeight="232.0" prefWidth="1100.0" />
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+               </center>
+            </BorderPane>
             <HBox alignment="CENTER" prefHeight="64.0" prefWidth="1300.0">
                <VBox.margin>
                   <Insets bottom="5.0" top="5.0" />
@@ -112,14 +216,18 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Label text="ERROR REPORT LABELA" textFill="#00f2ff" />
-                  <Button maxHeight="50.0" maxWidth="125.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="125.0" text="SAČUVAJ">
+                  <Button maxHeight="50.0" maxWidth="125.0" mnemonicParsing="false" onAction="#handleAddition" prefHeight="50.0" prefWidth="125.0" text="SAČUVAJ">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
                </children>
             </HBox>
+            <Label fx:id="infoLabel" text="ERROR REPORT LABELA" textFill="#00f2ff">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>

@@ -53,7 +53,7 @@ public class LoginController implements MVCController {
 	}
 	
 	@FXML
-	private void headToRegistration() {
+	public void headToRegistration() {
 		screenManager.activate("register");
 	}
 	

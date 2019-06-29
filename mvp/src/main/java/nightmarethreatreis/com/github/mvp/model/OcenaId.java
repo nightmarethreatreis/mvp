@@ -35,6 +35,22 @@ public class OcenaId implements Serializable {
 				predstavaId == other.predstavaId;
 	}
 	
+	public long getKupacId() {
+		return kupacId;
+	}
+
+	public void setKupacId(long kupacId) {
+		this.kupacId = kupacId;
+	}
+
+	public long getPredstavaId() {
+		return predstavaId;
+	}
+
+	public void setPredstavaId(long predstavaId) {
+		this.predstavaId = predstavaId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(kupacId, predstavaId);

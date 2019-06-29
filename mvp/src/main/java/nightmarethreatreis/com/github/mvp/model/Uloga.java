@@ -58,5 +58,4 @@ public class Uloga {
 		this.glumci = glumci;
 	}
 	
-	
 }

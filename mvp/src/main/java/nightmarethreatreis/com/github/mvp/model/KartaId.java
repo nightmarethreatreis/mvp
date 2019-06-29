@@ -35,6 +35,22 @@ public class KartaId implements Serializable {
 				Objects.equals(sedisteId, other.sedisteId);
 	}
 	
+	public long getIzvodjenjeId() {
+		return izvodjenjeId;
+	}
+
+	public void setIzvodjenjeId(long izvodjenjeId) {
+		this.izvodjenjeId = izvodjenjeId;
+	}
+
+	public SedisteId getSedisteId() {
+		return sedisteId;
+	}
+
+	public void setSedisteId(SedisteId sedisteId) {
+		this.sedisteId = sedisteId;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(izvodjenjeId, sedisteId);
