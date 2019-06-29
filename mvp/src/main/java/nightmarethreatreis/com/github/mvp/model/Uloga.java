@@ -5,10 +5,14 @@ import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 public class Uloga {
@@ -18,13 +22,13 @@ public class Uloga {
 	
 	@MapsId("predstavaId")
 	@JoinColumn(name = "predstava_id")
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Predstava predstava;
 	
 	private boolean glavna;
 	private String naziv;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Glumac> glumci = new LinkedList<>();
 
 	public UlogaId getId() {

@@ -2,6 +2,7 @@ package nightmarethreatreis.com.github.mvp.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -18,7 +19,8 @@ public class Predstava {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "predstava_id")
-	private int id;
+	private long id;
+	
 	@Column(nullable = false)
 	private String naziv;
 	@Column(nullable = false)
@@ -51,7 +53,16 @@ public class Predstava {
 	public void setReziseri(List<Reziser> reziseri) {
 		this.reziseri = reziseri;
 	}
-	public int getId() {
+	public List<Izvodjenje> getIzvodjenja() {
+		return izvodjenja;
+	}
+	public void setIzvodjenja(List<Izvodjenje> izvodjenja) {
+		this.izvodjenja = izvodjenja;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public long getId() {
 		return id;
 	}
 	public void setId(int id) {
@@ -80,6 +91,38 @@ public class Predstava {
 	}
 	public void setZanrovi(List<Zanr> zanrovi) {
 		this.zanrovi = zanrovi;
+	}
+	public String zanroviAsString() {
+		if(getZanrovi().size() > 0) {
+			return String.join(", ", getZanrovi().stream().map(Zanr::getNaziv).collect(Collectors.toList()));
+		}
+		else {
+			return "/";
+		}
+	}
+	public String reziseriAsString() {
+		if(getReziseri().size() > 0) {
+			return String.join(", ", getReziseri().stream().map(reziser -> reziser.getIme() + " " + reziser.getPrezime()).collect(Collectors.toList()));
+		}
+		else {
+			return "/";
+		}
+	}
+	public String ulogeAsString() {
+		if(getUloge().size() > 0) {
+			return String.join(", ", getUloge().stream().map(uloga -> {
+				String result = uloga.getNaziv();
+				if(uloga.getGlumci().size() > 0) {
+					result += "(";
+					result += String.join(", ", uloga.getGlumci().stream().map(glumac -> glumac.getIme() + " " + glumac.getPrezime()).collect(Collectors.toList()));
+					result += ")";
+				}
+				return result;
+			}).collect(Collectors.toList()));
+		}
+		else {
+			return "/";
+		}
 	}
 	
 	

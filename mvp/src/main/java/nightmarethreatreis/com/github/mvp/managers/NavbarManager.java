@@ -48,6 +48,7 @@ public class NavbarManager {
 	
 		// KUPAC LINKS
 		kupacLinks.add(createLink("Početna", "home"));
+		kupacLinks.add(createLink("Aktivne predstave", "showActiveShows"));
 		kupacLinks.add(createLink("Promena korisničkog imena", "changeUsername"));
 		kupacLinks.add(createLink("Promena lozinke", "changePassword"));
 		kupacLinks.add(createLogoutLink("Odjavi se"));
@@ -55,6 +56,7 @@ public class NavbarManager {
 		// ADMIN LINKS
 		adminLinks.add(createLink("Početna", "home"));
 		adminLinks.add(createLink("Pregled dramskih radnika", "showAllPersonel"));
+		adminLinks.add(createLink("Prikaz svih predstava", "showActiveShows"));
 		adminLinks.add(createLink("Promena korisničkog imena", "changeUsername"));
 		adminLinks.add(createLink("Promena lozinke", "changePassword"));
 		adminLinks.add(createLogoutLink("Odjavi se"));

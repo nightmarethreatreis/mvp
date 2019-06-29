@@ -1,6 +1,5 @@
 package nightmarethreatreis.com.github.mvp.screens.addShow;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -31,13 +30,12 @@ import nightmarethreatreis.com.github.mvp.logic.DataValidityException;
 import nightmarethreatreis.com.github.mvp.logic.PredstavaLogic;
 import nightmarethreatreis.com.github.mvp.managers.NavbarManager;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
+import nightmarethreatreis.com.github.mvp.model.Admin;
 import nightmarethreatreis.com.github.mvp.model.Glumac;
-import nightmarethreatreis.com.github.mvp.model.Predstava;
 import nightmarethreatreis.com.github.mvp.model.Reziser;
 import nightmarethreatreis.com.github.mvp.model.Uloga;
 import nightmarethreatreis.com.github.mvp.model.Zanr;
 import nightmarethreatreis.com.github.mvp.repositories.DramskiRadnikRepository;
-import nightmarethreatreis.com.github.mvp.repositories.PredstavaRepository;
 import nightmarethreatreis.com.github.mvp.repositories.ZanrRepository;
 import nightmarethreatreis.com.github.mvp.screens.MVCController;
 import nightmarethreatreis.com.github.mvp.screens.SimplifiedStringConverter;
@@ -168,9 +166,9 @@ public class AddShowController implements MVCController {
 	
 	@Override
 	public void onShow(OnShowEvent event) {
-		/*if(screenManager.redirectNonLogged("login")) {
+		if(screenManager.redirectUnauthorized(Admin.class, "home")) {
 			return;
-		}*/
+		}
 		navbarManager.updateNavbar(navbar);
 		resetForm();
 	}
@@ -356,5 +354,10 @@ public class AddShowController implements MVCController {
 		} catch (DataValidityException e) {
 			showErrorMessage(e.getMessage());
 		}
+	}
+	
+	@FXML
+	public void headToShowActiveShows() {
+		screenManager.activate("showActiveShows");
 	}
 }

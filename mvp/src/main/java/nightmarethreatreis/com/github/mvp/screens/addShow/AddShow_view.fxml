@@ -211,7 +211,7 @@
                   <Insets bottom="5.0" top="5.0" />
                </VBox.margin>
                <children>
-                  <Button maxHeight="50.0" maxWidth="125.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="125.0" text="Nazad">
+                  <Button maxHeight="50.0" maxWidth="125.0" mnemonicParsing="false" onAction="#headToShowActiveShows" prefHeight="50.0" prefWidth="125.0" text="Nazad">
                      <HBox.margin>
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
