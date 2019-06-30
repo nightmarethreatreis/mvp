@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -83,6 +84,8 @@ public class AddShowController implements MVCController {
 	private FlowPane ulogaPane;
 	@FXML
 	private TextArea opisArea;
+	@FXML
+	private CheckBox glavnaUlogaCheckBox;
 	
 	@Autowired
 	private NavbarManager navbarManager;
@@ -215,6 +218,7 @@ public class AddShowController implements MVCController {
 	}
 	
 	private void updateUlogaComboBox() {
+		glavnaUlogaCheckBox.setSelected(false);
 		ulogaComboBox.setValue(null);
 		ulogaComboBox.setItems(FXCollections.observableArrayList(podaciOUlogama));
 		updateGlumacComboBox();
@@ -261,7 +265,9 @@ public class AddShowController implements MVCController {
 				throw new DataValidityException("Naziv uloge ne sme biti prazan da biste je dodali");
 			}
 			ulogaField.setText("");
-			podaciOUlogama.add(new UlogaSelectionData(nazivUloge, sviGlumci));
+			UlogaSelectionData newUlogaEntry = new UlogaSelectionData(nazivUloge, sviGlumci);
+			newUlogaEntry.uloga.setGlavna(glavnaUlogaCheckBox.isSelected());
+			podaciOUlogama.add(newUlogaEntry);
 			updateUlogaComboBox();
 			clearMessage();
 		} catch (DataValidityException e) {

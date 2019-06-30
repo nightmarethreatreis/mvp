@@ -111,6 +111,7 @@
                            </padding>
                            <children>
                               <TextField fx:id="ulogaField" prefWidth="300.0" />
+                              <CheckBox fx:id="glavnaUlogaCheckBox" maxHeight="1.7976931348623157E308" mnemonicParsing="false" text="Glavna uloga" />
                               <Button mnemonicParsing="false" onAction="#dodajUlogu" prefWidth="140.0" text="Dodaj ulogu" />
                            </children>
                         </HBox>
