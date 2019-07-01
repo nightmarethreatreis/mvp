@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import javafx.application.Application;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import nightmarethreatreis.com.github.mvp.managers.ScreenManager;
 
@@ -33,6 +34,7 @@ public class MvpApplication extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		primaryStage.getIcons().add(new Image(MvpApplication.class.getResourceAsStream( "icon.png" )));
 		screenManager.setPrimaryStage(primaryStage, true);
 		screenManager.activate("login");
 		primaryStage.show();

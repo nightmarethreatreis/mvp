@@ -23,3 +23,6 @@ Aplikacija koristi MySQL bazu podataka i s toga ju je potrebno instalirati na ra
 	GRANT ALL PRIVILEGES ON * . * TO 'spring'@'localhost';
 	FLUSH PRIVILEGES;
 	```
+	
+### External credits
+Icons made by [**Freepik**](https://www.freepik.com/?__hstc=57440181.5ab70b3923b62f72d71e554cef63b2c7.1556530214153.1559727818067.1561981034884.3&__hssc=57440181.2.1561981034884&__hsfp=1416373280) from [**www.flaticon.com**](https://www.flaticon.com/) is licensed by [**CC 3.0 BY**](http://creativecommons.org/licenses/by/3.0/)
